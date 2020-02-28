@@ -8,15 +8,36 @@ public class TerrainGenerator : MonoBehaviour
     public int chunkWidth = 102;
     public int chunkHeight = 20;
 
-    int currentHeight;
-    int blockN;
+    public GameObject unit;
+    public GameObject[] blocks;
 
-    // Start is called before the first frame update
+    int currentHeight = 4;
+
     void Start()
+    {
+        FillBlock(blocks[0]);
+
+    }
+
+    void FillBlock(GameObject block)
+    {
+        int[,] chunk = GenerateChunk(true);
+
+        for (int i = 0; i < chunk.GetLength(0); i++)
+            for (int j = 0; j < chunk.GetLength(1); j++)
+                if (chunk[i, j] == 1)
+                {
+                    GameObject newUnit = (GameObject)Instantiate(unit);
+                    newUnit.transform.parent = block.transform;
+                    newUnit.transform.localPosition = new Vector3(-51f + i, -10f + (chunkHeight - j), 0);
+                }
+    }
+
+    int[,] GenerateChunk(bool debug)
     {
         int[,] chunk = new int[chunkWidth, chunkHeight];
 
-        currentHeight = 4;
+        int blockN = 0;
         bool lastPit = false;
 
         //generate first floor
@@ -44,7 +65,7 @@ public class TerrainGenerator : MonoBehaviour
             else
             {
                 // create a floor
-                floorWidth = rnd.Range(1, 10);
+                floorWidth = rnd.Range(2, 10);
                 floorHeight = rnd.Range(-3, 4);
                 currentHeight += floorHeight;
                 if (currentHeight < 0) currentHeight = 0;
@@ -74,16 +95,12 @@ public class TerrainGenerator : MonoBehaviour
             }
         }
 
-        Print();
+        if (debug) Print(chunk);
+
+        return chunk;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void Print()
+    void Print(int[,] chunk)
     {
         for (int i = 0; i < chunk.GetLength(1); i++)
         {
