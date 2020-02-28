@@ -34,7 +34,7 @@ public class CameraMovement : MonoBehaviour
     {
         this.transform.localPosition = new Vector3(this.transform.localPosition.x + speed, this.transform.localPosition.y, this.transform.localPosition.z);
         
-        if(this.transform.localPosition.x > 102f)
+        if(this.transform.localPosition.x > 152f)
         {
             for(int i = 0; i < blocks.Length; i++)
             {
@@ -42,7 +42,7 @@ public class CameraMovement : MonoBehaviour
                     blocks[i].transform.localPosition = new Vector3(blocks[i].transform.localPosition.x - 102f, blocks[i].transform.localPosition.y, blocks[i].transform.localPosition.z);
                 }
                 else {
-                    blocks[i].transform.localPosition = new Vector3(102f * 3, blocks[i].transform.localPosition.y, blocks[i].transform.localPosition.z);
+                    blocks[i].transform.localPosition = new Vector3(102f * 3 + 50, blocks[i].transform.localPosition.y, blocks[i].transform.localPosition.z);
                 }
             }
 
