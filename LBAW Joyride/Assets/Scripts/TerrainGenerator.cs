@@ -74,6 +74,17 @@ public class TerrainGenerator : MonoBehaviour
             }
         }
 
+        Print();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void Print()
+    {
         for (int i = 0; i < chunk.GetLength(1); i++)
         {
             string s = "";
@@ -83,11 +94,5 @@ public class TerrainGenerator : MonoBehaviour
             }
             Debug.Log(s);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

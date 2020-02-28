@@ -20,9 +20,9 @@ public class CameraMovement : MonoBehaviour
     {
         //Generate world space point information for position and scale calculations
         cameraPos = Camera.main.transform.position;
-        screenSize.x = Vector2.Distance (Camera.main.ScreenToWorldPoint(new Vector2(0,0)),Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0))) * 0.5f;
-        screenSize.y = Vector2.Distance (Camera.main.ScreenToWorldPoint(new Vector2(0,0)),Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height))) * 0.5f; 
-    
+        screenSize.x = Vector2.Distance(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)), Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0))) * 0.5f;
+        screenSize.y = Vector2.Distance(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)), Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height))) * 0.5f;
+
         this.transform.Find("RightCollider").localScale = new Vector3(colliderColDepth, screenSize.y * 2, colliderColDepth);
         this.transform.Find("RightCollider").position = new Vector3(cameraPos.x + screenSize.x + (this.transform.Find("RightCollider").localScale.x * 0.5f), cameraPos.y, colliderZPosition);
         this.transform.Find("LeftCollider").localScale = new Vector3(colliderColDepth, screenSize.y * 2, colliderColDepth);
@@ -33,24 +33,26 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         this.transform.localPosition = new Vector3(this.transform.localPosition.x + speed, this.transform.localPosition.y, this.transform.localPosition.z);
-        
-        if(this.transform.localPosition.x > 152f)
+
+        if (this.transform.localPosition.x > 152f)
         {
-            for(int i = 0; i < blocks.Length; i++)
+            for (int i = 0; i < blocks.Length; i++)
             {
-                if(i != pos) {
+                if (i != pos)
+                {
                     blocks[i].transform.localPosition = new Vector3(blocks[i].transform.localPosition.x - 102f, blocks[i].transform.localPosition.y, blocks[i].transform.localPosition.z);
                 }
-                else {
+                else
+                {
                     blocks[i].transform.localPosition = new Vector3(102f * 3 + 50, blocks[i].transform.localPosition.y, blocks[i].transform.localPosition.z);
                 }
             }
 
             player.transform.localPosition = new Vector3(player.transform.localPosition.x - 102f, player.transform.localPosition.y, player.transform.localPosition.z);
             this.transform.localPosition = new Vector3(this.transform.localPosition.x - 102f, this.transform.localPosition.y, this.transform.localPosition.z);
-        
+
             pos++;
-            if(pos > blocks.Length)
+            if (pos > blocks.Length)
                 pos = 0;
         }
     }
