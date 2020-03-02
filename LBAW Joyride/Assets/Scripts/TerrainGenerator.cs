@@ -23,7 +23,7 @@ public class TerrainGenerator : MonoBehaviour
 
     void FillBlock(GameObject block)
     {
-        int[,] chunk = GenerateChunk(true);
+        int[,] chunk = GenerateChunk(false);
 
         for (int i = 0; i < chunk.GetLength(0); i++)
             for (int j = 0; j < chunk.GetLength(1); j++)
