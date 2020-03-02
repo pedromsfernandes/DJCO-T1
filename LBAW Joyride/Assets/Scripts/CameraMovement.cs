@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -15,6 +16,16 @@ public class CameraMovement : MonoBehaviour
     Vector3 cameraPos;
     Vector2 screenSize;
 
+    public GameObject scoreController;
+
+    public DateTime startTime;
+
+    public int speedIncreaseInterval = 5;
+
+    public float speedIncreaseFactor = 1.25f;
+
+    int lastSeconds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +38,9 @@ public class CameraMovement : MonoBehaviour
         this.transform.Find("RightCollider").position = new Vector3(cameraPos.x + screenSize.x + (this.transform.Find("RightCollider").localScale.x * 0.5f), cameraPos.y, colliderZPosition);
         this.transform.Find("LeftCollider").localScale = new Vector3(colliderColDepth, screenSize.y * 2, colliderColDepth);
         this.transform.Find("LeftCollider").position = new Vector3(cameraPos.x - screenSize.x - (this.transform.Find("LeftCollider").localScale.x * 0.5f), cameraPos.y, colliderZPosition);
+
+        startTime = DateTime.Now;
+        lastSeconds = 0;
     }
 
     // Update is called once per frame
@@ -54,6 +68,24 @@ public class CameraMovement : MonoBehaviour
             pos++;
             if (pos > blocks.Length)
                 pos = 0;
+        }
+
+        // Update score
+        scoreController.GetComponent<ScoreController>().UpdateScore(speed);
+
+        // Update speed
+        UpdateSpeed();
+    }
+
+    void UpdateSpeed()
+    {
+        DateTime currTime = DateTime.Now;
+        int seconds = (int)(currTime - startTime).TotalSeconds;
+
+        if (seconds > 0 && seconds % speedIncreaseInterval == 0 && lastSeconds != seconds)
+        {
+            speed *= speedIncreaseFactor;
+            lastSeconds = seconds;
         }
     }
 }
