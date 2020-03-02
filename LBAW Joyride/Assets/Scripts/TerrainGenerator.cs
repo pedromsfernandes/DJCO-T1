@@ -39,12 +39,14 @@ public class TerrainGenerator : MonoBehaviour
     {
         int[,] chunk = new int[chunkWidth, chunkHeight];
 
+        int lastWidth = 0;
+
         int blockN = 0;
         bool lastPit = false;
 
         //generate first floor
         int floorWidth = rnd.Range(4, 10);
-        int floorHeight = rnd.Range(-3, 4);
+        int floorHeight = rnd.Range(-2, 3);
         currentHeight += floorHeight;
         for (int i = blockN; i < blockN + floorWidth; i++)
         {
@@ -54,14 +56,35 @@ public class TerrainGenerator : MonoBehaviour
             }
         }
         blockN += floorWidth;
+        lastWidth = floorWidth;
 
         //generate chunk
         while (chunkWidth - blockN > 10)
         {
-            if (!lastPit && rnd.Range(0, 100) < 30)
+            if (!lastPit && rnd.Range(0, 100) < 40)
             {
                 // create a pit
-                blockN += rnd.Range(1, 7);
+                int pitWidth = rnd.Range(1, 5);
+
+                //generate platform over
+                if (pitWidth >= 3 && currentHeight <= 12 && rnd.Range(0, 100) < 60)
+                {
+                    for (int i = blockN - 1; i < blockN + pitWidth - 1; i++)
+                    {
+                        chunk[i, chunkHeight - 1 - currentHeight - 3] = 1;
+                    }
+
+                    //generate second platform over
+                    if (rnd.Range(0, 100) < 60)
+                    {
+                        for (int i = blockN + pitWidth + 1; i < blockN + pitWidth + 4; i++)
+                        {
+                            chunk[i, chunkHeight - 1 - currentHeight - 6] = 1;
+                        }
+                    }
+                }
+
+                blockN += pitWidth;
                 lastPit = true;
             }
             else
@@ -79,13 +102,43 @@ public class TerrainGenerator : MonoBehaviour
                         chunk[i, chunkHeight - 1 - j] = 1;
                     }
                 }
+
+                //if floor height < -> generate platform ahead, then generate platform ahead
+                if (floorHeight < 0 && currentHeight <= 12 && rnd.Range(0, 100) < 60)
+                {
+                    for (int i = blockN + 2; i < blockN + floorWidth; i++)
+                    {
+                        chunk[i, chunkHeight - 1 - currentHeight - 3] = 1;
+                    }
+
+                    if ( rnd.Range(0, 100) < 60)
+                    {
+                        for (int i = blockN + floorWidth + 2; i < blockN + floorWidth; i++)
+                        {
+                            chunk[i, chunkHeight - 1 - currentHeight - 6] = 1;
+                        }
+                    }
+
+                }
+
                 blockN += floorWidth;
+
+                //if floor height > -> generate platform behind
+                if (floorHeight > 0 && currentHeight <= 12 && !lastPit && rnd.Range(0, 100) < 60)
+                {
+                    for (int i = blockN - lastWidth; i < blockN - 2; i++)
+                    {
+                        chunk[i, chunkHeight - 1 - currentHeight - 3] = 1;
+                    }
+                }
+
+                lastWidth = floorWidth;
                 lastPit = false;
             }
         }
 
         //generate last floor
-        floorHeight = rnd.Range(-3, 4);
+        floorHeight = rnd.Range(-2, 3);
         currentHeight += floorHeight;
         if (currentHeight < 0) currentHeight = 0;
         if (currentHeight > 19) currentHeight = 19;
