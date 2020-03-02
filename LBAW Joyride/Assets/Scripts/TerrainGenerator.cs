@@ -16,7 +16,9 @@ public class TerrainGenerator : MonoBehaviour
     void Start()
     {
         FillBlock(blocks[0]);
-
+        FillBlock(blocks[1]);
+        FillBlock(blocks[2]);
+        FillBlock(blocks[3]);
     }
 
     void FillBlock(GameObject block)
@@ -66,13 +68,13 @@ public class TerrainGenerator : MonoBehaviour
             {
                 // create a floor
                 floorWidth = rnd.Range(2, 10);
-                floorHeight = rnd.Range(-3, 4);
+                floorHeight = rnd.Range(-2, 3);
                 currentHeight += floorHeight;
                 if (currentHeight < 0) currentHeight = 0;
                 if (currentHeight > 19) currentHeight = 19;
                 for (int i = blockN; i < blockN + floorWidth; i++)
                 {
-                    for (int j = 0; j < currentHeight; j++)
+                    for (int j = 0; j <= currentHeight; j++)
                     {
                         chunk[i, chunkHeight - 1 - j] = 1;
                     }
