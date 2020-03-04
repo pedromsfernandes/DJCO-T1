@@ -22,24 +22,62 @@ public class TerrainGenerator : MonoBehaviour
         FillBlock(blocks[3]);
     }
 
-    void FillBlock(GameObject block)
+    public void FillBlock(GameObject block)
     {
+        EmptyBlock(block);
+
         int[,] chunk = GenerateChunk(false);
 
         for (int i = 0; i < chunk.GetLength(0); i++)
             for (int j = 0; j < chunk.GetLength(1); j++)
                 if (chunk[i, j] == 1)
                 {
-                    GameObject newUnit = (GameObject)Instantiate(unit);
-                    newUnit.transform.parent = block.transform;
+                    GameObject newUnit;
+                    if (transform.Find("BlockPool").childCount == 0)
+                    {
+                        newUnit = (GameObject)Instantiate(unit);
+                    }
+                    else
+                    {
+                        newUnit = transform.Find("BlockPool").GetChild(0).gameObject;
+                    }
+
+                    newUnit.transform.parent = block.transform.Find("Items");
                     newUnit.transform.localPosition = new Vector3(-51f + i, -10f + (chunkHeight - j), 0);
+                    newUnit.SetActive(true);
                 }
                 else if (chunk[i, j] == 2)
                 {
-                    GameObject newArtifact = (GameObject)Instantiate(artifact);
-                    newArtifact.transform.parent = block.transform;
+                    GameObject newArtifact;
+                    if (transform.Find("ArtifactPool").childCount == 0)
+                    {
+                        newArtifact = (GameObject)Instantiate(artifact);
+                    }
+                    else
+                    {
+                        newArtifact = transform.Find("ArtifactPool").GetChild(0).gameObject;
+                    }
+                    newArtifact.transform.parent = block.transform.Find("Items");
                     newArtifact.transform.localPosition = new Vector3(-51f + i, -10f + (chunkHeight - j), 0);
+                    newArtifact.SetActive(true);
                 }
+    }
+
+    void EmptyBlock(GameObject block)
+    {
+        while(block.transform.Find("Items").childCount > 0)
+        {
+            block.transform.GetChild(0).gameObject.SetActive(false);
+
+            if(block.transform.GetChild(0).name.Contains("BasicBlock"))
+            {
+                block.transform.GetChild(0).parent = transform.Find("BlockPool");
+            }
+            else
+            {
+                block.transform.GetChild(0).parent = transform.Find("ArtifactPool");
+            }
+        }
     }
 
     int[,] GenerateChunk(bool debug)

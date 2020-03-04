@@ -9,6 +9,7 @@ public class CameraMovement : MonoBehaviour
 
     public GameObject player;
     public GameObject[] blocks;
+    public TerrainGenerator terrainGenerator;
     public float colliderColDepth = 4f;
     public float colliderZPosition = 0f;
 
@@ -66,6 +67,8 @@ public class CameraMovement : MonoBehaviour
 
             player.transform.localPosition = new Vector3(player.transform.localPosition.x - 102f, player.transform.localPosition.y, player.transform.localPosition.z);
             this.transform.localPosition = new Vector3(this.transform.localPosition.x - 102f, this.transform.localPosition.y, this.transform.localPosition.z);
+
+            terrainGenerator.FillBlock(blocks[pos]);
 
             pos++;
             if (pos > blocks.Length)
