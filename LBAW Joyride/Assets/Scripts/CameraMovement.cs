@@ -90,4 +90,10 @@ public class CameraMovement : MonoBehaviour
             lastSeconds = seconds;
         }
     }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
 }
