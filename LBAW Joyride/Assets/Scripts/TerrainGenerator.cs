@@ -65,17 +65,18 @@ public class TerrainGenerator : MonoBehaviour
 
     void EmptyBlock(GameObject block)
     {
-        while(block.transform.Find("Items").childCount > 0)
+        Transform items = block.transform.Find("Items");
+        while(items.childCount > 0)
         {
-            block.transform.GetChild(0).gameObject.SetActive(false);
+            items.GetChild(0).gameObject.SetActive(false);
 
-            if(block.transform.GetChild(0).name.Contains("BasicBlock"))
+            if(items.GetChild(0).name.Contains("BasicBlock"))
             {
-                block.transform.GetChild(0).parent = transform.Find("BlockPool");
+                items.GetChild(0).parent = transform.Find("BlockPool");
             }
             else
             {
-                block.transform.GetChild(0).parent = transform.Find("ArtifactPool");
+                items.GetChild(0).parent = transform.Find("ArtifactPool");
             }
         }
     }
