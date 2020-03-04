@@ -38,6 +38,8 @@ public class CameraMovement : MonoBehaviour
         this.transform.Find("RightCollider").position = new Vector3(cameraPos.x + screenSize.x + (this.transform.Find("RightCollider").localScale.x * 0.5f), cameraPos.y, colliderZPosition);
         this.transform.Find("LeftCollider").localScale = new Vector3(colliderColDepth, screenSize.y * 2, colliderColDepth);
         this.transform.Find("LeftCollider").position = new Vector3(cameraPos.x - screenSize.x - (this.transform.Find("LeftCollider").localScale.x * 0.5f), cameraPos.y, colliderZPosition);
+        this.transform.Find("BottomCollider").localScale = new Vector3(screenSize.x * 2, colliderColDepth, colliderColDepth);
+        this.transform.Find("BottomCollider").position = new Vector3(cameraPos.x, (cameraPos.y - screenSize.y - (this.transform.Find("BottomCollider").localScale.y * 0.5f)) * 1.4f, colliderZPosition);
 
         startTime = DateTime.Now;
         lastSeconds = 0;
