@@ -99,4 +99,9 @@ public class CameraMovement : MonoBehaviour
         speed = newSpeed;
     }
 
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
 }
