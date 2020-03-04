@@ -9,6 +9,7 @@ public class TerrainGenerator : MonoBehaviour
     public int chunkHeight = 20;
 
     public GameObject unit;
+    public GameObject artifact;
     public GameObject[] blocks;
 
     int currentHeight = 4;
@@ -32,6 +33,12 @@ public class TerrainGenerator : MonoBehaviour
                     GameObject newUnit = (GameObject)Instantiate(unit);
                     newUnit.transform.parent = block.transform;
                     newUnit.transform.localPosition = new Vector3(-51f + i, -10f + (chunkHeight - j), 0);
+                }
+                else if (chunk[i, j] == 2)
+                {
+                    GameObject newArtifact = (GameObject)Instantiate(artifact);
+                    newArtifact.transform.parent = block.transform;
+                    newArtifact.transform.localPosition = new Vector3(-51f + i, -10f + (chunkHeight - j), 0);
                 }
     }
 
@@ -72,6 +79,8 @@ public class TerrainGenerator : MonoBehaviour
                     for (int i = blockN - 1; i < blockN + pitWidth - 1; i++)
                     {
                         chunk[i, chunkHeight - 1 - currentHeight - 3] = 1;
+                        if (i % 2 == 0)
+                            chunk[i, chunkHeight - 1 - currentHeight - 4] = 2;
                     }
 
                     //generate second platform over
@@ -80,6 +89,8 @@ public class TerrainGenerator : MonoBehaviour
                         for (int i = blockN + pitWidth + 1; i < blockN + pitWidth + 4; i++)
                         {
                             chunk[i, chunkHeight - 1 - currentHeight - 6] = 1;
+                            if (i % 2 == 0)
+                                chunk[i, chunkHeight - 1 - currentHeight - 7] = 2;
                         }
                     }
                 }
@@ -109,13 +120,17 @@ public class TerrainGenerator : MonoBehaviour
                     for (int i = blockN + 2; i < blockN + floorWidth; i++)
                     {
                         chunk[i, chunkHeight - 1 - currentHeight - 3] = 1;
+                        if (i % 2 == 0)
+                            chunk[i, chunkHeight - 1 - currentHeight - 4] = 2;
                     }
 
-                    if ( rnd.Range(0, 100) < 60)
+                    if (rnd.Range(0, 100) < 60)
                     {
                         for (int i = blockN + floorWidth + 2; i < blockN + floorWidth; i++)
                         {
                             chunk[i, chunkHeight - 1 - currentHeight - 6] = 1;
+                            if (i % 2 == 0)
+                                chunk[i, chunkHeight - 1 - currentHeight - 7] = 2;
                         }
                     }
 
@@ -129,6 +144,8 @@ public class TerrainGenerator : MonoBehaviour
                     for (int i = blockN - lastWidth; i < blockN - 2; i++)
                     {
                         chunk[i, chunkHeight - 1 - currentHeight - 3] = 1;
+                        if (i % 2 == 0)
+                            chunk[i, chunkHeight - 1 - currentHeight - 4] = 2;
                     }
                 }
 
