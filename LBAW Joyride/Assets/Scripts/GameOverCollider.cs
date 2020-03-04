@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameOverCollider : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class GameOverCollider : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("GAME OVER");
+        transform.parent.gameObject.GetComponent<CameraMovement>().SetSpeed(0f);
     }
 
 }
