@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7985468411961815094}
-  - component: {fileID: 7986265229478446096}
   - component: {fileID: 7985468411961815093}
   - component: {fileID: 7985468411961815092}
+  - component: {fileID: -6992801985719745261}
   m_Layer: 0
   m_Name: Artifact
   m_TagString: Untagged
@@ -33,18 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7986265229478446096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7985468411961815099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 667fd2c5df17d0a4aba45077e211d5c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &7985468411961815093
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -121,3 +109,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.25, y: 1.25}
   m_EdgeRadius: 0
+--- !u!114 &-6992801985719745261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985468411961815099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0931322d2573713189104c1106766420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpName: 
+  powerUpExplanation: 
+  powerUpQuote: 
+  expiresImmediately: 1
+  specialEffect: {fileID: 0}
+  soundEffect: {fileID: 0}
+  expireDelay: 5
+  type: 
+  scoreController: {fileID: 0}
