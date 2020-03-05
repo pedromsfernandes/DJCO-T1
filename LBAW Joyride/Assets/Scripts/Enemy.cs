@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using rnd = UnityEngine.Random;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IPowerUpEvents
 {
     bool moving = false;
+
+    public bool isRoastActive;
+
     float startYPosition;
 
     float totalTime = 0;
@@ -19,18 +22,19 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         fireCooldownCounter = fireCooldown;
+        isRoastActive = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(moving)
+        if (moving)
         {
             totalTime += Time.deltaTime;
             fireCooldownCounter -= Time.deltaTime;
             this.transform.localPosition = new Vector3(this.transform.localPosition.x, startYPosition * Mathf.Sin(totalTime), this.transform.localPosition.z);
 
-            if(fireCooldownCounter <= rnd.Range(-0.5f, 0.5f))
+            if (fireCooldownCounter <= rnd.Range(-0.5f, 0.5f) && isRoastActive)
             {
                 Vector3 targetVector = player.transform.position - this.transform.position;
                 projectile.Fire(this.transform.position, Vector3.Normalize(targetVector));
@@ -43,5 +47,26 @@ public class Enemy : MonoBehaviour
     {
         startYPosition = this.transform.localPosition.y;
         moving = true;
+    }
+
+    void IPowerUpEvents.OnPowerUpCollected(PowerUp powerUp)
+    {
+        Debug.Log("Hello");
+
+        if (powerUp is PowerUpNoRoasts)
+        {
+            Debug.Log("Hello there");
+
+            isRoastActive = false;
+        }
+    }
+
+    void IPowerUpEvents.OnPowerUpExpired(PowerUp powerUp)
+    {
+        if (powerUp is PowerUpNoRoasts)
+        {
+            isRoastActive = true;
+        }
+
     }
 }

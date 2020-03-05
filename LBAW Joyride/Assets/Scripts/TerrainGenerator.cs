@@ -12,6 +12,7 @@ public class TerrainGenerator : MonoBehaviour
     public GameObject window;
     public GameObject artifact;
     public GameObject slowCamera;
+    public GameObject noRoasts;
     public GameObject[] blocks;
 
     int currentHeight = 4;
@@ -74,6 +75,8 @@ public class TerrainGenerator : MonoBehaviour
 
                         if (randomNumber < 70)
                             newPowerUp = (GameObject)Instantiate(artifact);
+                        else if(randomNumber < 90)
+                            newPowerUp = (GameObject)Instantiate(noRoasts);
                         else
                             newPowerUp = (GameObject)Instantiate(slowCamera);
                     }
