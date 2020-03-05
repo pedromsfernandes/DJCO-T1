@@ -165,7 +165,7 @@ public class TerrainGenerator : MonoBehaviour
                 floorHeight = rnd.Range(-2, 3);
                 currentHeight += floorHeight;
                 if (currentHeight < 0) currentHeight = 0;
-                if (currentHeight > 19) currentHeight = 19;
+                if (currentHeight > 15) currentHeight = 15;
                 for (int i = blockN; i < blockN + floorWidth; i++)
                 {
                     for (int j = 0; j <= currentHeight; j++)
@@ -218,7 +218,7 @@ public class TerrainGenerator : MonoBehaviour
         floorHeight = rnd.Range(-2, 3);
         currentHeight += floorHeight;
         if (currentHeight < 0) currentHeight = 0;
-        if (currentHeight > 19) currentHeight = 19;
+        if (currentHeight > 15) currentHeight = 15;
         for (int i = blockN; i < chunkWidth; i++)
         {
             for (int j = 0; j <= currentHeight; j++)

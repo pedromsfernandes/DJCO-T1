@@ -118,7 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7985468411961815099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0931322d2573713189104c1106766420, type: 3}
+  m_Script: {fileID: 11500000, guid: f2ede1e7b088754498b1f15c27b1453d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpName: 
@@ -129,4 +129,3 @@ MonoBehaviour:
   soundEffect: {fileID: 0}
   expireDelay: 5
   type: 
-  scoreController: {fileID: 0}
