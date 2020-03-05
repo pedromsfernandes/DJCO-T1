@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7985468411961815092}
   - component: {fileID: -8770763126082440658}
   m_Layer: 0
-  m_Name: BasicBlock
+  m_Name: WindowBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 68c0d13c57c4b0c41b20681f99ae8c02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0cea413b5c56cbd43981619cb6de3ab5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,8 +99,8 @@ BoxCollider2D:
   m_Offset: {x: 0.625, y: 0.625}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1.25, y: 1.25}
     newSize: {x: 1.25, y: 1.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
