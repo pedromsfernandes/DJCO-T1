@@ -6,11 +6,13 @@ using rnd = UnityEngine.Random;
 public class Enemy : MonoBehaviour
 {
     bool moving = false;
-    bool firing = false;
     float startYPosition;
 
     float totalTime = 0;
     float fireCooldownCounter;
+
+    public GameObject player;
+    public Projectile projectile;
     public float fireCooldown = 5f;
 
     // Start is called before the first frame update
@@ -28,22 +30,10 @@ public class Enemy : MonoBehaviour
             fireCooldownCounter -= Time.deltaTime;
             this.transform.localPosition = new Vector3(this.transform.localPosition.x, startYPosition * Mathf.Sin(totalTime), this.transform.localPosition.z);
 
-            if(fireCooldownCounter <= rnd.Range(-0.3f, 0.3f))
+            if(fireCooldownCounter <= rnd.Range(-0.5f, 0.5f))
             {
-                moving = false;
-                firing = true;
-                fireCooldownCounter = 0f;
-            }
-        }
-        else if(firing)
-        {
-            fireCooldownCounter += Time.deltaTime;
-            
-            //simulate firing
-            if(fireCooldownCounter >= 2f)
-            {
-                moving = true;
-                firing = false;
+                Vector3 targetVector = player.transform.position - this.transform.position;
+                projectile.Fire(this.transform.position, Vector3.Normalize(targetVector));
                 fireCooldownCounter = fireCooldown;
             }
         }
