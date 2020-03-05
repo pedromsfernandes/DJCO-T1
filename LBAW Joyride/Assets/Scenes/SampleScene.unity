@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 25423351}
   - component: {fileID: 25423352}
   - component: {fileID: 25423353}
+  - component: {fileID: 25423354}
   m_Layer: 0
   m_Name: Roast
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 25423349}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: -22.890625}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -193,7 +194,8 @@ SpriteRenderer:
   m_SortingLayerID: 715761603
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -6607481912129624618, guid: 007a9d9641390504e98be2220ad61d63,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -232,7 +234,27 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 1.27
+--- !u!114 &25423354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25423349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10e1fe0092cb5848934882703cdc19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: -6607481912129624618, guid: 007a9d9641390504e98be2220ad61d63, type: 3}
+  - {fileID: -7250195882505504687, guid: 007a9d9641390504e98be2220ad61d63, type: 3}
+  - {fileID: 4403933487624526528, guid: 007a9d9641390504e98be2220ad61d63, type: 3}
+  - {fileID: 8927358698389672400, guid: 007a9d9641390504e98be2220ad61d63, type: 3}
+  - {fileID: 2250600637640065238, guid: 007a9d9641390504e98be2220ad61d63, type: 3}
+  - {fileID: -4701697456131926120, guid: 007a9d9641390504e98be2220ad61d63, type: 3}
+  speed: 0.1
 --- !u!1 &45199103
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +316,7 @@ Transform:
   - {fileID: 1811772180}
   - {fileID: 1267392117}
   - {fileID: 45199104}
+  - {fileID: 1891515909}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -314,6 +337,8 @@ MonoBehaviour:
   unit: {fileID: 7985468411961815099, guid: 0b2c5222e1c5c0e4ba83c0ca8890d20b, type: 3}
   window: {fileID: 7985468411961815099, guid: 0e2ca8961ca99394f9c96a474781b4a9, type: 3}
   artifact: {fileID: 7985468411961815099, guid: 0f9974853ee19ac48be9229ce52eb3e3,
+    type: 3}
+  slowCamera: {fileID: 3521778354307583239, guid: a6c6d2a44c5d8c648a2798c67ca6d6c8,
     type: 3}
   blocks:
   - {fileID: 572281321}
@@ -362,6 +387,7 @@ MonoBehaviour:
   scoreController: {fileID: 950058533}
   speedIncreaseInterval: 10
   speedIncreaseFactor: 1.05
+  update: 0
 --- !u!4 &244011445
 Transform:
   m_ObjectHideFlags: 0
@@ -1390,6 +1416,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 239761426}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1891515908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891515909}
+  m_Layer: 0
+  m_Name: PowerUpPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891515909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891515908}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 239761426}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916945476
 GameObject:
