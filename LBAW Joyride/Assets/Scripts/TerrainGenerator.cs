@@ -11,6 +11,7 @@ public class TerrainGenerator : MonoBehaviour
     public GameObject unit;
     public GameObject window;
     public GameObject artifact;
+    public GameObject slowCamera;
     public GameObject[] blocks;
 
     int currentHeight = 4;
@@ -65,18 +66,24 @@ public class TerrainGenerator : MonoBehaviour
                 }
                 else if (chunk[i, j] == 2)
                 {
-                    GameObject newArtifact;
-                    if (transform.Find("ArtifactPool").childCount == 0)
+                    GameObject newPowerUp;
+                    if (transform.Find("PowerUpPool").childCount == 0)
                     {
-                        newArtifact = (GameObject)Instantiate(artifact);
+
+                        double randomNumber = rnd.Range(0, 101);
+
+                        if (randomNumber < 70)
+                            newPowerUp = (GameObject)Instantiate(artifact);
+                        else
+                            newPowerUp = (GameObject)Instantiate(slowCamera);
                     }
                     else
                     {
-                        newArtifact = transform.Find("ArtifactPool").GetChild(0).gameObject;
+                        newPowerUp = transform.Find("PowerUpPool").GetChild(0).gameObject;
                     }
-                    newArtifact.transform.parent = block.transform.Find("Items");
-                    newArtifact.transform.localPosition = new Vector3(-51f + i, -10f + (chunkHeight - j), 0);
-                    newArtifact.SetActive(true);
+                    newPowerUp.transform.parent = block.transform.Find("Items");
+                    newPowerUp.transform.localPosition = new Vector3(-51f + i, -10f + (chunkHeight - j), 0);
+                    newPowerUp.SetActive(true);
                 }
     }
 
@@ -93,7 +100,7 @@ public class TerrainGenerator : MonoBehaviour
             }
             else if (items.GetChild(0).name.Contains("Artifact"))
             {
-                items.GetChild(0).parent = transform.Find("ArtifactPool");
+                items.GetChild(0).parent = transform.Find("PowerUpPool");
             }
             else if (items.GetChild(0).name.Contains("Window"))
             {

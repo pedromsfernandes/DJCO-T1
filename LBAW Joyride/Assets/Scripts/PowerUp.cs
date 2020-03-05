@@ -43,12 +43,15 @@ public class PowerUp : MonoBehaviour
     public string powerUpName;
     public string powerUpExplanation;
     public string powerUpQuote;
-    [Tooltip ("Tick true for power ups that are instant use, eg a health addition that has no delay before expiring")]
+    [Tooltip("Tick true for power ups that are instant use, eg a health addition that has no delay before expiring")]
     public bool expiresImmediately;
     public GameObject specialEffect;
     public AudioClip soundEffect;
 
+    public bool powerUpCollected;
+
     public float expireDelay = 5f;
+    public float timer = 5f;
 
     /// <summary>
     /// It is handy to keep a reference to the player that collected us
@@ -65,33 +68,49 @@ public class PowerUp : MonoBehaviour
 
     protected PowerUpState powerUpState;
 
-    protected virtual void Awake ()
+    protected virtual void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer> ();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    protected virtual void Start ()
+    protected virtual void Start()
     {
         powerUpState = PowerUpState.InAttractMode;
+        powerUpCollected = false;
+    }
+
+    protected void Update()
+    {
+        if (powerUpCollected)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                PowerUpHasExpired();
+                timer = 5f;
+            }
+        }
+
     }
 
     /// <summary>
     /// 2D support
     /// </summary>
-    protected virtual void OnTriggerEnter2D (Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        PowerUpCollected (other.gameObject);
+        PowerUpCollected(other.gameObject);
     }
 
     /// <summary>
     /// 3D support
     /// </summary>
-    protected virtual void OnTriggerEnter (Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        PowerUpCollected (other.gameObject);
+        PowerUpCollected(other.gameObject);
     }
 
-    protected virtual void PowerUpCollected (GameObject gameObjectCollectingPowerUp)
+    protected virtual void PowerUpCollected(GameObject gameObjectCollectingPowerUp)
     {
         // We only care if we've been collected by the player
         if (gameObjectCollectingPowerUp.tag != "Player")
@@ -107,7 +126,7 @@ public class PowerUp : MonoBehaviour
         powerUpState = PowerUpState.IsCollected;
 
         // We must have been collected by a player, store handle to player for later use      
-       // playerBrain = gameObjectCollectingPowerUp.GetComponent<PlayerBrain> ();
+        // playerBrain = gameObjectCollectingPowerUp.GetComponent<PlayerBrain> ();
 
         // We move the power up game object to be under the player that collect it, this isn't essential for functionality 
         // presented so far, but it is neater in the gameObject hierarchy
@@ -115,26 +134,26 @@ public class PowerUp : MonoBehaviour
         // gameObject.transform.position = playerBrain.gameObject.transform.position;
 
         // Collection effects
-        PowerUpEffects ();           
+        PowerUpEffects();
 
         // Payload      
-        PowerUpPayload ();
+        PowerUpPayload();
 
         // // Send message to any listeners
         foreach (GameObject go in EventSystemListeners.main.listeners)
         {
-            ExecuteEvents.Execute<IPowerUpEvents> (go, null, (x, y) => x.OnPowerUpCollected (this));
+            ExecuteEvents.Execute<IPowerUpEvents>(go, null, (x, y) => x.OnPowerUpCollected(this));
         }
 
         // Now the power up visuals can go away
         spriteRenderer.enabled = false;
     }
 
-    protected virtual void PowerUpEffects ()
+    protected virtual void PowerUpEffects()
     {
         if (specialEffect != null)
         {
-            Instantiate (specialEffect, transform.position, transform.rotation, transform);
+            Instantiate(specialEffect, transform.position, transform.rotation, transform);
         }
 
         if (soundEffect != null)
@@ -143,39 +162,42 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    protected virtual void PowerUpPayload ()
+    protected virtual void PowerUpPayload()
     {
-        Debug.Log ("Power Up collected, issuing payload for: " + gameObject.name);
+        Debug.Log("Power Up collected, issuing payload for: " + gameObject.name);
 
         // If we're instant use we also expire self immediately
         if (expiresImmediately)
         {
-            PowerUpHasExpired ();
+            PowerUpHasExpired();
         }
+        else
+            powerUpCollected = true;
     }
 
-    protected virtual void PowerUpHasExpired ()
+    protected virtual void PowerUpHasExpired()
     {
         if (powerUpState == PowerUpState.IsExpiring)
         {
             return;
         }
         powerUpState = PowerUpState.IsExpiring;
+        powerUpCollected = true;
 
         // Send message to any listeners
-        // foreach (GameObject go in EventSystemListeners.main.listeners)
-        // {
-        //     ExecuteEvents.Execute<IPowerUpEvents> (go, null, (x, y) => x.OnPowerUpExpired (this, playerBrain));
-        // }
-        Debug.Log ("Power Up has expired, removing after a delay for: " + gameObject.name);
-        DestroySelfAfterDelay ();
+        foreach (GameObject go in EventSystemListeners.main.listeners)
+        {
+            ExecuteEvents.Execute<IPowerUpEvents>(go, null, (x, y) => x.OnPowerUpExpired(this));
+        }
+        Debug.Log("Power Up has expired, removing after a delay for: " + gameObject.name);
+        DestroySelfAfterDelay();
     }
 
-    protected virtual void DestroySelfAfterDelay ()
+    protected virtual void DestroySelfAfterDelay()
     {
         // Arbitrary delay of some seconds to allow particle, audio is all done
         // TODO could tighten this and inspect the sfx? Hard to know how many, as subclasses could have spawned their own
-        Destroy (gameObject, expireDelay);
+        Destroy(gameObject, 0);
     }
 }
 
