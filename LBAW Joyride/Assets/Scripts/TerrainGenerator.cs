@@ -164,7 +164,7 @@ public class TerrainGenerator : MonoBehaviour
                 floorWidth = rnd.Range(2, 10);
                 floorHeight = rnd.Range(-2, 3);
                 currentHeight += floorHeight;
-                if (currentHeight < 0) currentHeight = 0;
+                if (currentHeight < 3) currentHeight = 3;
                 if (currentHeight > 15) currentHeight = 15;
                 for (int i = blockN; i < blockN + floorWidth; i++)
                 {
@@ -217,7 +217,7 @@ public class TerrainGenerator : MonoBehaviour
         //generate last floor
         floorHeight = rnd.Range(-2, 3);
         currentHeight += floorHeight;
-        if (currentHeight < 0) currentHeight = 0;
+        if (currentHeight < 3) currentHeight = 3;
         if (currentHeight > 15) currentHeight = 15;
         for (int i = blockN; i < chunkWidth; i++)
         {
@@ -234,7 +234,7 @@ public class TerrainGenerator : MonoBehaviour
 
     void GenerateBlock(int[,] chunk, int chunkHeight, int floorWidth, int floorHeight, int blockN, int i, int j)
     {
-        if (floorWidth < 3)
+        if (floorWidth < 2)
             chunk[i, chunkHeight - 1 - j] = 1;
         else
         {
