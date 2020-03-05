@@ -127,7 +127,6 @@ MonoBehaviour:
   expiresImmediately: 0
   specialEffect: {fileID: 0}
   soundEffect: {fileID: 0}
-  expireDelay: 5
+  expireDelay: 2
   previousSpeed: 0
-  slowerSpeed: 0
-  camera: {fileID: 0}
+  slowerSpeed: 0.02

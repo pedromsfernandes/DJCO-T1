@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+public class CameraMovement : MonoBehaviour, IPowerUpEvents
 {
     public float speed = 0;
 
@@ -27,6 +27,8 @@ public class CameraMovement : MonoBehaviour
 
     int lastSeconds;
 
+    public Boolean update;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,7 @@ public class CameraMovement : MonoBehaviour
 
         startTime = DateTime.Now;
         lastSeconds = 0;
+        update = true;
     }
 
     // Update is called once per frame
@@ -82,7 +85,8 @@ public class CameraMovement : MonoBehaviour
         scoreController.GetComponent<ScoreController>().UpdateScore(speed);
 
         // Update speed
-        UpdateSpeed();
+        if (update)
+            UpdateSpeed();
     }
 
     void UpdateSpeed()
@@ -107,4 +111,24 @@ public class CameraMovement : MonoBehaviour
         return speed;
     }
 
+
+    void IPowerUpEvents.OnPowerUpCollected(PowerUp powerUp)
+    {
+        if (powerUp is PowerUpSlowCamera)
+        {
+            ((PowerUpSlowCamera)powerUp).SetPreviousSpeed(speed);
+            this.SetSpeed(((PowerUpSlowCamera)powerUp).GetSlowerSpeed());
+            update = false;
+        }
+    }
+
+    void IPowerUpEvents.OnPowerUpExpired(PowerUp powerUp)
+    {
+        if (powerUp is PowerUpSlowCamera)
+        {
+            this.SetSpeed(((PowerUpSlowCamera)powerUp).GetPreviousSpeed());
+            update = true;
+        }
+
+    }
 }

@@ -5,28 +5,28 @@ using UnityEngine;
 public class PowerUpSlowCamera : PowerUp
 {
     public float previousSpeed;
-    public float slowerSpeed;
-    public GameObject camera;
+    public float slowerSpeed = 0;
 
-    protected override void Start(){
+    protected override void Start()
+    {
         base.Start();
 
         previousSpeed = 0;
-        slowerSpeed = camera.GetComponent<CameraMovement>().GetSpeed();
     }
 
-    protected override void PowerUpPayload()  // Checklist item 1
+    public void SetPreviousSpeed(float speed)
     {
-        base.PowerUpPayload();
-
-        previousSpeed = camera.GetComponent<CameraMovement>().GetSpeed();
-        camera.GetComponent<CameraMovement>().SetSpeed(slowerSpeed);
+        previousSpeed = speed;
     }
 
-    protected override void PowerUpHasExpired()
+    public float GetSlowerSpeed()
     {
-        camera.GetComponent<CameraMovement>().SetSpeed(previousSpeed);
-        base.PowerUpHasExpired();
+        return slowerSpeed;
     }
 
+
+    public float GetPreviousSpeed()
+    {
+        return previousSpeed;
+    }
 }
