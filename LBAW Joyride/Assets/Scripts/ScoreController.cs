@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreController : MonoBehaviour
+public class ScoreController : MonoBehaviour, IPowerUpEvents
 {
     public float score;
     public Text scoreText;
@@ -41,5 +41,18 @@ public class ScoreController : MonoBehaviour
     public void catchArtifact(string type)
     {
         score += artifactValues[type];
+    }
+
+    void IPowerUpEvents.OnPowerUpCollected(PowerUp powerUp)
+    {
+        if(powerUp is PowerUpArtifact)
+        {
+            this.catchArtifact(((PowerUpArtifact) powerUp).GetArtifactType());
+        }
+    }
+
+    void IPowerUpEvents.OnPowerUpExpired(PowerUp powerUp)
+    {
+
     }
 }

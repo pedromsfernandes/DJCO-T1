@@ -121,10 +121,10 @@ public class PowerUp : MonoBehaviour
         PowerUpPayload ();
 
         // // Send message to any listeners
-        // foreach (GameObject go in EventSystemListeners.main.listeners)
-        // {
-        //     ExecuteEvents.Execute<IPowerUpEvents> (go, null, (x, y) => x.OnPowerUpCollected (this, playerBrain));
-        // }
+        foreach (GameObject go in EventSystemListeners.main.listeners)
+        {
+            ExecuteEvents.Execute<IPowerUpEvents> (go, null, (x, y) => x.OnPowerUpCollected (this));
+        }
 
         // Now the power up visuals can go away
         spriteRenderer.enabled = false;
