@@ -44,9 +44,10 @@ namespace UnityStandardAssets._2D
             else
             {
                 stunCooldownCounter += Time.deltaTime;
-                if(stunCooldownCounter >= stunCooldown)
+                if (stunCooldownCounter >= stunCooldown)
                 {
                     moving = true;
+                    this.gameObject.transform.Find("Stun").gameObject.SetActive(false);
                     stunCooldownCounter = 0;
                 }
             }
@@ -55,6 +56,7 @@ namespace UnityStandardAssets._2D
         public void Stun()
         {
             moving = false;
+            this.gameObject.transform.Find("Stun").gameObject.SetActive(true);
         }
     }
 }
