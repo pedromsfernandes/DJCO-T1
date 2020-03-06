@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour, IPowerUpEvents
             if (fireCooldownCounter <= rnd.Range(-0.5f, 0.5f) && isRoastActive)
             {
                 Vector3 targetVector = player.transform.position - this.transform.position;
-                projectile.Fire(this.transform.position, Vector3.Normalize(targetVector));
+                projectile.Fire(this.transform.position, Vector3.Normalize(targetVector), this.transform.localPosition.y > 0);
                 fireCooldownCounter = fireCooldown;
             }
         }

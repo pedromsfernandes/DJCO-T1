@@ -23,11 +23,11 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void Fire(Vector3 startPos, Vector3 target)
+    public void Fire(Vector3 startPos, Vector3 target, bool flip)
     {
         this.gameObject.SetActive(true);
         this.transform.position = startPos;
-        this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y, Vector3.Angle(new Vector3(1f, 0, 0), target) * (this.transform.localPosition.y > 0 ? -1f : 1f));
+        this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y, Vector3.Angle(new Vector3(1f, 0, 0), target) * (flip ? -1f : 1f));
         targetVector = target;
         moving = true;
     }
