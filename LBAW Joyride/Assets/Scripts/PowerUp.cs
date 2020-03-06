@@ -50,7 +50,6 @@ public class PowerUp : MonoBehaviour
 
     public bool powerUpCollected;
 
-    public float expireDelay = 5f;
     public float timer = 5f;
 
     /// <summary>

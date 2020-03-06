@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 563286488}
   m_Layer: 0
   m_Name: B. Toldt
-  m_TagString: Untagged
+  m_TagString: Listener
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1093,7 +1093,7 @@ GameObject:
   - component: {fileID: 950058534}
   m_Layer: 0
   m_Name: ScoreController
-  m_TagString: Untagged
+  m_TagString: Listener
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1239,19 +1239,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1583575275}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1222090752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222090751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc293f0ac0188a4e99549be3fafef3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreController: {fileID: 950058533}
 --- !u!58 &1222090753
 CircleCollider2D:
   m_ObjectHideFlags: 0
