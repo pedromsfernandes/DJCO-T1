@@ -33,6 +33,8 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        this.gameObject.SetActive(false);
         other.gameObject.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().Stun();
+        other.gameObject.transform.Find("Particle System").GetComponent<ParticleSystem>().Play();
     }
 }
