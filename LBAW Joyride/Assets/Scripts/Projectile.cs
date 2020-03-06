@@ -27,6 +27,7 @@ public class Projectile : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         this.transform.position = startPos;
+        this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y, Vector3.Angle(new Vector3(1f, 0, 0), target) * (this.transform.localPosition.y > 0 ? -1f : 1f));
         targetVector = target;
         moving = true;
     }
