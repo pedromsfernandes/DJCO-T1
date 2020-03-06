@@ -1,0 +1,475 @@
+fileFormatVersion: 2
+guid: 40c3d192e5036434a807ea60e191b473
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6971312329175205242
+    second: toldt_0
+  - first:
+      213: 7237193263636230759
+    second: toldt_1
+  - first:
+      213: -4872159142683363713
+    second: toldt_2
+  - first:
+      213: 6548089214405623219
+    second: toldt_3
+  - first:
+      213: 5884457956888974263
+    second: toldt_4
+  - first:
+      213: -3615397584161039312
+    second: toldt_5
+  - first:
+      213: 4999380126641907671
+    second: toldt_6
+  - first:
+      213: 5888483814336355576
+    second: toldt_7
+  - first:
+      213: -1828835214410121402
+    second: toldt_8
+  - first:
+      213: 4950601927606161331
+    second: toldt_9
+  - first:
+      213: 8370305905583409456
+    second: toldt_10
+  - first:
+      213: -4928824537386063538
+    second: toldt_11
+  - first:
+      213: 9038120843004481150
+    second: toldt_12
+  - first:
+      213: 1964886109980584444
+    second: toldt_13
+  - first:
+      213: 3578121370637087877
+    second: toldt_14
+  - first:
+      213: 8773437898325929017
+    second: toldt_15
+  - first:
+      213: -7171161480382272734
+    second: toldt_16
+  - first:
+      213: -2298900998022273883
+    second: toldt_17
+  - first:
+      213: -4401906730195474373
+    second: toldt_18
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: toldt_0
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 1230
+        width: 311
+        height: 548
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68af5394f5ce04f90800000000000000
+      internalID: -6971312329175205242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_1
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 1230
+        width: 311
+        height: 548
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76233e1ddecaf6460800000000000000
+      internalID: 7237193263636230759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_2
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 1230
+        width: 314
+        height: 548
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76bf23d21d926cb0800000000000000
+      internalID: -4872159142683363713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_3
+      rect:
+        serializedVersion: 2
+        x: 2368
+        y: 1230
+        width: 314
+        height: 548
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bdb63e727c7fda50800000000000000
+      internalID: 6548089214405623219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_5
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 1230
+        width: 315
+        height: 548
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03c964a6d0783ddc0800000000000000
+      internalID: -3615397584161039312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_7
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 633
+        width: 318
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fcd723a4d818b150800000000000000
+      internalID: 5888483814336355576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_8
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 633
+        width: 318
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ffb54ef0cae96e0800000000000000
+      internalID: -1828835214410121402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_9
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 633
+        width: 319
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf4457493214b440800000000000000
+      internalID: 4950601927606161331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_10
+      rect:
+        serializedVersion: 2
+        x: 2368
+        y: 633
+        width: 319
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03947a39fdc492470800000000000000
+      internalID: 8370305905583409456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_11
+      rect:
+        serializedVersion: 2
+        x: 3059
+        y: 633
+        width: 319
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49efd0823c499bb0800000000000000
+      internalID: -4928824537386063538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_13
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 33
+        width: 318
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9ed71b18da44b10800000000000000
+      internalID: 1964886109980584444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_14
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 33
+        width: 316
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 584be0ccd6a08a130800000000000000
+      internalID: 3578121370637087877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_15
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 32
+        width: 314
+        height: 546
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93caaace84381c970800000000000000
+      internalID: 8773437898325929017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_16
+      rect:
+        serializedVersion: 2
+        x: 2368
+        y: 31
+        width: 312
+        height: 547
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ba9d6c0aaea7c90800000000000000
+      internalID: -7171161480382272734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toldt_17
+      rect:
+        serializedVersion: 2
+        x: 3059
+        y: 31
+        width: 312
+        height: 547
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a4671fe8b9a810e0800000000000000
+      internalID: -2298900998022273883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

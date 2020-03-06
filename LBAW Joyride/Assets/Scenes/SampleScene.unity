@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 244011444}
   m_Layer: 0
   m_Name: CameraController
-  m_TagString: Untagged
+  m_TagString: Listener
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -715,6 +715,7 @@ GameObject:
   - component: {fileID: 563286486}
   - component: {fileID: 563286485}
   - component: {fileID: 563286487}
+  - component: {fileID: 563286488}
   m_Layer: 0
   m_Name: B. Toldt
   m_TagString: Untagged
@@ -802,6 +803,35 @@ MonoBehaviour:
   player: {fileID: 1222090751}
   projectile: {fileID: 25423352}
   fireCooldown: 3
+--- !u!114 &563286488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563286484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10e1fe0092cb5848934882703cdc19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: -6971312329175205242, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: 7237193263636230759, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: -4872159142683363713, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: 6548089214405623219, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: -3615397584161039312, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: 5888483814336355576, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: -1828835214410121402, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: 4950601927606161331, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: 8370305905583409456, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: -4928824537386063538, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: 1964886109980584444, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: 3578121370637087877, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: 8773437898325929017, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: -7171161480382272734, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  - {fileID: -2298900998022273883, guid: 40c3d192e5036434a807ea60e191b473, type: 3}
+  speed: 0.1
 --- !u!1 &572281321
 GameObject:
   m_ObjectHideFlags: 0
