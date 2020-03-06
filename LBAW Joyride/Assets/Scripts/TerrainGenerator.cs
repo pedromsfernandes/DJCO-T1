@@ -73,9 +73,9 @@ public class TerrainGenerator : MonoBehaviour
 
                         double randomNumber = rnd.Range(0, 101);
 
-                        if (randomNumber < 70)
+                        if (randomNumber < 90)
                             newPowerUp = (GameObject)Instantiate(artifact);
-                        else if(randomNumber < 90)
+                        else if(randomNumber < 95)
                             newPowerUp = (GameObject)Instantiate(noRoasts);
                         else
                             newPowerUp = (GameObject)Instantiate(slowCamera);

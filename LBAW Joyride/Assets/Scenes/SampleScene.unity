@@ -340,6 +340,8 @@ MonoBehaviour:
     type: 3}
   slowCamera: {fileID: 3521778354307583239, guid: a6c6d2a44c5d8c648a2798c67ca6d6c8,
     type: 3}
+  noRoasts: {fileID: 3521778354307583239, guid: 7a6a4015c056ed74d81e8e852dfee005,
+    type: 3}
   blocks:
   - {fileID: 572281321}
   - {fileID: 936560848}
@@ -797,6 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e96e69471b1b7c49bb24dff20e6e9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRoastActive: 0
   player: {fileID: 1222090751}
   projectile: {fileID: 25423352}
   fireCooldown: 3
