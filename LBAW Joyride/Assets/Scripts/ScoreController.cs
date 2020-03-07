@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour, IPowerUpEvents
 {
-    public float score;
+    public float score { get; set;}
     public Text scoreText;
 
     Dictionary<string, int> artifactValues = new Dictionary<string, int>(){
