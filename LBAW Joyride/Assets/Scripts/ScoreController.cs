@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour, IPowerUpEvents
 {
-    public float score;
+    public float score { get; set;}
     public Text scoreText;
-    
+
     Dictionary<string, int> artifactValues = new Dictionary<string, int>(){
         {
             "low", 100
@@ -35,19 +35,20 @@ public class ScoreController : MonoBehaviour, IPowerUpEvents
     public void UpdateScore(float increment)
     {
         score += increment;
-        scoreText.text = ((int) score) + "";
+        scoreText.text = ((int)score) + "";
     }
 
-    public void catchArtifact(string type)
+    public void CatchArtifact(string type)
     {
         score += artifactValues[type];
+        scoreText.text = ((int)score) + "";
     }
 
     void IPowerUpEvents.OnPowerUpCollected(PowerUp powerUp)
     {
-        if(powerUp is PowerUpArtifact)
+        if (powerUp is PowerUpArtifact)
         {
-            this.catchArtifact(((PowerUpArtifact) powerUp).GetArtifactType());
+            this.CatchArtifact(((PowerUpArtifact)powerUp).GetArtifactType());
         }
     }
 

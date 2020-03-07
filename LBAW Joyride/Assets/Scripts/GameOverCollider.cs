@@ -5,6 +5,11 @@ using UnityEngine;
 public class GameOverCollider : MonoBehaviour
 {
 
+    public GameObject gameOverUI;
+    public GameObject toldt;
+    public GameObject highscoresController;
+    public GameObject scoreController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +26,9 @@ public class GameOverCollider : MonoBehaviour
     {
         Debug.Log("GAME OVER");
         transform.parent.gameObject.GetComponent<CameraMovement>().SetSpeed(0f);
+        gameOverUI.SetActive(true);
+        toldt.GetComponent<Enemy>().Stop();
+        highscoresController.GetComponent<HighscoresController>().AddHighscoreEntry((int)scoreController.GetComponent<ScoreController>().score, "nandes");
     }
 
 }
