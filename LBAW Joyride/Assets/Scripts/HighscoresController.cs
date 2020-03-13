@@ -9,7 +9,6 @@ public class HighscoresController : MonoBehaviour
     public int capacity = 10;
 
     private Highscores highscores;
-
     public void AddHighscoreEntry(int score, string name)
     {
         string jsonString = PlayerPrefs.GetString(PLAYER_PREFS_STRING);
@@ -39,6 +38,18 @@ public class HighscoresController : MonoBehaviour
 
     }
 
+    public Highscores GetHighscores()
+    {
+        string jsonString = PlayerPrefs.GetString(PLAYER_PREFS_STRING);
+
+        if (PlayerPrefs.HasKey(PLAYER_PREFS_STRING))
+            highscores = JsonUtility.FromJson<Highscores>(jsonString);
+        else
+            highscores = new Highscores();
+
+        return highscores;
+    }
+
     private void saveHighscores()
     {
         string json = JsonUtility.ToJson(highscores);
@@ -46,15 +57,16 @@ public class HighscoresController : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    [System.Serializable]
-    private class HighscoreEntry
-    {
-        public int score;
-        public string name;
-    }
 
-    private class Highscores
+    public class Highscores
     {
         public List<HighscoreEntry> highscoreEntries = new List<HighscoreEntry>();
     }
+}
+
+[System.Serializable]
+public class HighscoreEntry
+{
+    public int score;
+    public string name;
 }
