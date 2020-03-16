@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HighscoresController : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class HighscoresController : MonoBehaviour
     public int capacity = 10;
 
     private Highscores highscores;
+
+    public AudioClip buttonSound;
+
     public void AddHighscoreEntry(int score, string name)
     {
         string jsonString = PlayerPrefs.GetString(PLAYER_PREFS_STRING);
@@ -57,6 +61,11 @@ public class HighscoresController : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void MainMenu()
+    {
+        SingleAudioSource.PlayMusic(buttonSound);
+        SceneManager.LoadScene("MainMenu");
+    }
 
     public class Highscores
     {
