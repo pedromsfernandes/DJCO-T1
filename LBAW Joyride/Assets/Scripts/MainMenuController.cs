@@ -39,6 +39,14 @@ public class MainMenuController : MonoBehaviour
         {
             LoopAudioSource.PlayMusic(soundtrack);
             StartCoroutine(FirstMenuAnim(delta));
+            first = false;
+        }
+        else
+        {
+            logo.color = new Color(logo.color.r, logo.color.g, logo.color.b, 1f);
+            foreach (GameObject btn in btns)
+                btn.transform.localPosition = new Vector3(btn.transform.localPosition.x, btn.transform.localPosition.y + delta, btn.transform.localPosition.z);
+
         }
     }
 
