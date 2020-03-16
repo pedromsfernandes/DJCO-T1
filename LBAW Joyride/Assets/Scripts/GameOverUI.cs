@@ -41,6 +41,7 @@ public class GameOverUI : MonoBehaviour
         Debug.Log(name);
         highscoresController.GetComponent<HighscoresController>().AddHighscoreEntry((int)scoreController.GetComponent<ScoreController>().score, name);
     }
+    
     public void Continue()
     {
         SingleAudioSource.PlayMusic(buttonSound);
