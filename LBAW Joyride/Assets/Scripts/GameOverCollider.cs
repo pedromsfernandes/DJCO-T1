@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameOverCollider : MonoBehaviour
 {
     public GameObject gameOverUI;
+    public GameObject player;
     public GameObject toldt;
     public GameObject highscoresController;
     public GameObject scoreController;
@@ -30,6 +31,7 @@ public class GameOverCollider : MonoBehaviour
         transform.parent.gameObject.GetComponent<CameraMovement>().SetSpeed(0f);
         gameOverUI.SetActive(true);
         toldt.GetComponent<Enemy>().Stop();
+        player.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().Stop();
         highscoresController.GetComponent<HighscoresController>().AddHighscoreEntry((int)scoreController.GetComponent<ScoreController>().score, "nandes");
     }
 

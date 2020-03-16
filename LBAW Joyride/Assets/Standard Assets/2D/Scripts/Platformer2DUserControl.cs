@@ -13,6 +13,7 @@ namespace UnityStandardAssets._2D
         public float stunCooldown = 1f;
         float stunCooldownCounter = 0f;
         bool moving = true;
+        bool pause = false;
 
         private void Awake()
         {
@@ -32,6 +33,9 @@ namespace UnityStandardAssets._2D
 
         private void FixedUpdate()
         {
+            if(pause)
+                return;
+
             if (moving)
             {
                 // Read the inputs.
@@ -57,6 +61,16 @@ namespace UnityStandardAssets._2D
         {
             moving = false;
             this.gameObject.transform.Find("Stun").gameObject.SetActive(true);
+        }
+
+        public void Start()
+        {
+            pause = false;
+        }
+
+        public void Stop()
+        {
+            pause = true;
         }
     }
 }

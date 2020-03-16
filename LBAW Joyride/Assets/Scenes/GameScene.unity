@@ -785,6 +785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 2029636508}
+  player: {fileID: 1222090751}
   toldt: {fileID: 563286484}
   highscoresController: {fileID: 1431932860}
   scoreController: {fileID: 950058533}
@@ -2015,6 +2016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 2029636508}
+  player: {fileID: 1222090751}
   toldt: {fileID: 563286484}
   highscoresController: {fileID: 1431932860}
   scoreController: {fileID: 950058533}

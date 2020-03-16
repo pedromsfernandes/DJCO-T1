@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraMovement : MonoBehaviour, IPowerUpEvents
 {
@@ -89,6 +90,11 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
         // Update speed
         if (update)
             UpdateSpeed();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     void UpdateSpeed()
