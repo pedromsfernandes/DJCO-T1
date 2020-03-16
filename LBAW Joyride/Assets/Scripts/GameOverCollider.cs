@@ -7,8 +7,6 @@ public class GameOverCollider : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject player;
     public GameObject toldt;
-    public GameObject highscoresController;
-    public GameObject scoreController;
 
     public AudioClip gameOverSound;
 
@@ -29,10 +27,9 @@ public class GameOverCollider : MonoBehaviour
         Debug.Log("GAME OVER");
         SingleAudioSource.PlayMusic(gameOverSound);
         transform.parent.gameObject.GetComponent<CameraMovement>().SetSpeed(0f);
-        gameOverUI.SetActive(true);
+        gameOverUI.GetComponent<GameOverUI>().OnGameOver();
         toldt.GetComponent<Enemy>().Stop();
         player.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().Stop();
-        highscoresController.GetComponent<HighscoresController>().AddHighscoreEntry((int)scoreController.GetComponent<ScoreController>().score, "nandes");
     }
 
 }

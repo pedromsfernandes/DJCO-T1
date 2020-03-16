@@ -9,13 +9,16 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
     public float speed = 0;
 
     public GameObject player;
+    public GameObject toldt;
     public GameObject roast;
     public GameObject[] blocks;
+    public GameObject pauseUI;
     public TerrainGenerator terrainGenerator;
     public float colliderColDepth = 4f;
     public float colliderZPosition = 0f;
 
     int pos = 0;
+    float speedSave = 0;
     Vector3 cameraPos;
     Vector2 screenSize;
 
@@ -93,7 +96,11 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("MainMenu");
+            speedSave = speed;
+            speed = 0;
+            pauseUI.SetActive(true);
+            toldt.GetComponent<Enemy>().Stop();
+            player.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().Stop();
         }
     }
 
@@ -119,6 +126,13 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
         return speed;
     }
 
+    public void Continue()
+    {
+        speed = speedSave;
+        pauseUI.SetActive(false);
+        toldt.GetComponent<Enemy>().Begin();
+        player.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().Begin();
+    }
 
     void IPowerUpEvents.OnPowerUpCollected(PowerUp powerUp)
     {

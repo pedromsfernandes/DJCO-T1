@@ -63,7 +63,7 @@ namespace UnityStandardAssets._2D
             this.gameObject.transform.Find("Stun").gameObject.SetActive(true);
         }
 
-        public void Start()
+        public void Begin()
         {
             pause = false;
         }

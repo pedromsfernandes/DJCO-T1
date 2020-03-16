@@ -13,6 +13,13 @@ public class HighscoresController : MonoBehaviour
 
     public AudioClip buttonSound;
 
+    public bool isScoreHighEnough(int score)
+    {
+        highscores = GetHighscores();
+        Debug.Log(score > highscores.highscoreEntries[highscores.highscoreEntries.Count - 1].score);
+        return highscores.highscoreEntries.Count < capacity || score > highscores.highscoreEntries[highscores.highscoreEntries.Count - 1].score;
+    }
+
     public void AddHighscoreEntry(int score, string name)
     {
         string jsonString = PlayerPrefs.GetString(PLAYER_PREFS_STRING);
