@@ -8,8 +8,12 @@ public class PowerUpArtifact : PowerUp
     public string type;
     public Sprite[] imgs;
 
+    public AudioClip artifactSound;
+
     protected override void Start()
     {
+        this.sound = artifactSound;
+
         double randomNumber = rnd.Range(0, 101);
 
         if (randomNumber < 60)

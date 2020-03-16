@@ -12,6 +12,9 @@ public class MainMenuController : MonoBehaviour
     public Image logo;
     public GameObject[] btns;
 
+    public AudioClip soundtrack;
+    public AudioClip btnSound;
+
     Vector2 screenSize;
 
     void Start()
@@ -29,32 +32,37 @@ public class MainMenuController : MonoBehaviour
         {
             btns[i].GetComponent<RectTransform>().sizeDelta = new Vector2(screenSize.y / 2.5f, screenSize.y / 9f);
             btns[i].GetComponent<RectTransform>().localPosition = new Vector3(0, (-screenSize.y / 2f) - (screenSize.y / 9f) * (i + 1), 0);
-            btns[i].transform.Find("Text").GetComponent<Text>().fontSize = (int) (btns[i].GetComponent<RectTransform>().sizeDelta.y / 2f);
+            btns[i].transform.Find("Text").GetComponent<Text>().fontSize = (int)(btns[i].GetComponent<RectTransform>().sizeDelta.y / 2f);
         }
 
         if (first)
         {
+            LoopAudioSource.PlayMusic(soundtrack);
             StartCoroutine(FirstMenuAnim(delta));
         }
     }
 
     public void NewGame()
     {
+        SingleAudioSource.PlayMusic(btnSound);
         SceneManager.LoadScene("GameScene");
     }
 
     public void Controls()
     {
+        SingleAudioSource.PlayMusic(btnSound);
         SceneManager.LoadScene("ControlsMenu");
     }
 
     public void HighScores()
     {
+        SingleAudioSource.PlayMusic(btnSound);
         SceneManager.LoadScene("HighScoresMenu");
     }
 
     public void Exit()
     {
+        SingleAudioSource.PlayMusic(btnSound);
         Application.Quit();
     }
 

@@ -52,6 +52,8 @@ public class PowerUp : MonoBehaviour
 
     public float timer = 5f;
 
+    protected AudioClip sound;
+
     /// <summary>
     /// It is handy to keep a reference to the player that collected us
     /// </summary>
@@ -98,6 +100,8 @@ public class PowerUp : MonoBehaviour
     /// </summary>
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
+        if (powerUpState != PowerUpState.IsCollected && powerUpState != PowerUpState.IsExpiring)
+            SingleAudioSource.PlayMusic(sound);
         PowerUpCollected(other.gameObject);
     }
 
@@ -106,6 +110,8 @@ public class PowerUp : MonoBehaviour
     /// </summary>
     protected virtual void OnTriggerEnter(Collider other)
     {
+        if (powerUpState != PowerUpState.IsCollected && powerUpState != PowerUpState.IsExpiring)
+            SingleAudioSource.PlayMusic(sound);
         PowerUpCollected(other.gameObject);
     }
 

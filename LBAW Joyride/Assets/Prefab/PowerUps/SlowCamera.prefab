@@ -128,7 +128,7 @@ MonoBehaviour:
   specialEffect: {fileID: 0}
   soundEffect: {fileID: 0}
   powerUpCollected: 0
-  expireDelay: 2
   timer: 5
   previousSpeed: 0
   slowerSpeed: 0.02
+  powerUpSound: {fileID: 8300000, guid: 4524445096cfefe469a21f1e51a7d442, type: 3}

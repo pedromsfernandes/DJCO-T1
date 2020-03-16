@@ -8,6 +8,9 @@ public class Projectile : MonoBehaviour
     bool moving = false;
     public float speed = 0.2f;
 
+    public AudioClip fire;
+    public AudioClip hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +33,12 @@ public class Projectile : MonoBehaviour
         this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y, Vector3.Angle(new Vector3(1f, 0, 0), target) * (flip ? -1f : 1f));
         targetVector = target;
         moving = true;
+        SingleAudioSource.PlayMusic(fire);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        SingleAudioSource.PlayMusic(hit);
         this.gameObject.SetActive(false);
         other.gameObject.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().Stun();
         other.gameObject.transform.Find("Particle System").GetComponent<ParticleSystem>().Play();

@@ -857,6 +857,8 @@ MonoBehaviour:
   - {fileID: 1425146447}
   - {fileID: 665040518}
   - {fileID: 84402304}
+  soundtrack: {fileID: 8300000, guid: be6875351800aa1448ee4fe5c52d9743, type: 3}
+  btnSound: {fileID: 8300000, guid: 2700d6216b7a8d446a6652f7a245060d, type: 3}
 --- !u!1 &1172351643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1460,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0

@@ -348,6 +348,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.3
+  fire: {fileID: 8300000, guid: eece55e1db39f264ea2dc0093f2e23ef, type: 3}
+  hit: {fileID: 8300000, guid: f3bc345c6db13c142b2ee57ea98d990e, type: 3}
 --- !u!58 &25423353
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -915,6 +917,7 @@ MonoBehaviour:
   toldt: {fileID: 563286484}
   highscoresController: {fileID: 1431932860}
   scoreController: {fileID: 950058533}
+  gameOverSound: {fileID: 8300000, guid: e30cf83ca9c670742b677d83a29030c4, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,6 +2118,7 @@ MonoBehaviour:
   toldt: {fileID: 563286484}
   highscoresController: {fileID: 1431932860}
   scoreController: {fileID: 950058533}
+  gameOverSound: {fileID: 8300000, guid: e30cf83ca9c670742b677d83a29030c4, type: 3}
 --- !u!1 &1958081665
 GameObject:
   m_ObjectHideFlags: 0

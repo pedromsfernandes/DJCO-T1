@@ -7,10 +7,13 @@ public class PowerUpSlowCamera : PowerUp
     public float previousSpeed;
     public float slowerSpeed = 0;
 
+    public AudioClip powerUpSound;
+
     protected override void Start()
     {
         base.Start();
-
+        
+        this.sound = powerUpSound;
         previousSpeed = 0;
     }
 

@@ -51,12 +51,8 @@ public class Enemy : MonoBehaviour, IPowerUpEvents
 
     void IPowerUpEvents.OnPowerUpCollected(PowerUp powerUp)
     {
-        Debug.Log("Hello");
-
         if (powerUp is PowerUpNoRoasts)
         {
-            Debug.Log("Hello there");
-
             isRoastActive = false;
         }
     }
