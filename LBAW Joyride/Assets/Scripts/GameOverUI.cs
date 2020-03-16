@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverUI : MonoBehaviour
 {
+    public CameraMovement camera;
     public AudioClip buttonSound;
 
     public void PlayAgain()
@@ -17,5 +18,11 @@ public class GameOverUI : MonoBehaviour
     {
         SingleAudioSource.PlayMusic(buttonSound);
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Continue()
+    {
+        SingleAudioSource.PlayMusic(buttonSound);
+        camera.Continue();
     }
 }

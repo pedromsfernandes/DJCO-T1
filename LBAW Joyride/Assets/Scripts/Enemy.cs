@@ -66,6 +66,12 @@ public class Enemy : MonoBehaviour, IPowerUpEvents
 
     }
 
+    public void Begin()
+    {
+        moving = true;
+        isRoastActive = true;
+    }
+
     public void Stop()
     {
         moving = false;
