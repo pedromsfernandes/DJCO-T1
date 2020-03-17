@@ -16,7 +16,6 @@ public class HighscoresController : MonoBehaviour
     public bool isScoreHighEnough(int score)
     {
         highscores = GetHighscores();
-        Debug.Log(score > highscores.highscoreEntries[highscores.highscoreEntries.Count - 1].score);
         return highscores.highscoreEntries.Count < capacity || score > highscores.highscoreEntries[highscores.highscoreEntries.Count - 1].score;
     }
 
