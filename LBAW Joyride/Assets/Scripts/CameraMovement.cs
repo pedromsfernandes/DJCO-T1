@@ -60,7 +60,7 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
     // Update is called once per frame
     void Update()
     {
-        this.transform.localPosition = new Vector3(this.transform.localPosition.x + speed, this.transform.localPosition.y, this.transform.localPosition.z);
+        this.transform.localPosition = new Vector3(this.transform.localPosition.x + speed  * Time.deltaTime, this.transform.localPosition.y, this.transform.localPosition.z);
 
         if (this.transform.localPosition.x > 152f)
         {
@@ -94,7 +94,7 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
         if (update)
             UpdateSpeed();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && speed != 0)
         {
             speedSave = speed;
             speed = 0;

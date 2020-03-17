@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
     {
         if(moving)
         {
-            this.transform.position = this.transform.position + (targetVector * speed);
+            this.transform.position = this.transform.position + (targetVector * speed * Time.deltaTime);
         }
     }
 

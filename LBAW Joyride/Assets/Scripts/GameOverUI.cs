@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameOverUI : MonoBehaviour
 {
-    public CameraMovement camera;
+    public CameraMovement gameCamera;
     public AudioClip buttonSound;
     public GameObject highscoresController;
     public GameObject scoreController;
+
+    public Button button;
 
     public InputField input;
 
@@ -37,14 +39,15 @@ public class GameOverUI : MonoBehaviour
 
     public void OnHighscoreSave()
     {
+        button.interactable = false;
         string name = input.text;
         Debug.Log(name);
         highscoresController.GetComponent<HighscoresController>().AddHighscoreEntry((int)scoreController.GetComponent<ScoreController>().score, name);
     }
-    
+
     public void Continue()
     {
         SingleAudioSource.PlayMusic(buttonSound);
-        camera.Continue();
+        gameCamera.Continue();
     }
 }

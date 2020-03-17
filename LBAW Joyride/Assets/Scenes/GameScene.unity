@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5241a18d27fa07046a8674f7940133b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 20
   fire: {fileID: 8300000, guid: eece55e1db39f264ea2dc0093f2e23ef, type: 3}
   hit: {fileID: 8300000, guid: f3bc345c6db13c142b2ee57ea98d990e, type: 3}
 --- !u!58 &25423353
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9808f6a0e50834b81374716e846ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.02
+  speed: 2
   player: {fileID: 1222090751}
   toldt: {fileID: 563286484}
   roast: {fileID: 25423349}
@@ -856,7 +856,7 @@ RectTransform:
   m_GameObject: {fileID: 462860144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 2029636509}
   m_RootOrder: 0
@@ -2218,10 +2218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7424b34b0ee5e284b87c91a0593de5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 244011444}
+  gameCamera: {fileID: 244011444}
   buttonSound: {fileID: 8300000, guid: 2700d6216b7a8d446a6652f7a245060d, type: 3}
   highscoresController: {fileID: 0}
   scoreController: {fileID: 0}
+  button: {fileID: 0}
   input: {fileID: 0}
 --- !u!95 &1016716487
 Animator:
@@ -2389,7 +2390,7 @@ RectTransform:
   m_GameObject: {fileID: 1183395389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1016716485}
   m_RootOrder: 0
@@ -3594,10 +3595,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7424b34b0ee5e284b87c91a0593de5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 244011444}
+  gameCamera: {fileID: 244011444}
   buttonSound: {fileID: 8300000, guid: 2700d6216b7a8d446a6652f7a245060d, type: 3}
   highscoresController: {fileID: 1431932860}
   scoreController: {fileID: 950058533}
+  button: {fileID: 1341333399}
   input: {fileID: 924218994}
 --- !u!95 &2029636511
 Animator:

@@ -130,5 +130,5 @@ MonoBehaviour:
   powerUpCollected: 0
   timer: 5
   previousSpeed: 0
-  slowerSpeed: 0.02
+  slowerSpeed: 1
   powerUpSound: {fileID: 8300000, guid: 4524445096cfefe469a21f1e51a7d442, type: 3}
