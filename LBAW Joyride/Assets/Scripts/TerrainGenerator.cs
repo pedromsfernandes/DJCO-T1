@@ -75,7 +75,7 @@ public class TerrainGenerator : MonoBehaviour
 
                         if (randomNumber < 90)
                             newPowerUp = (GameObject)Instantiate(artifact);
-                        else if(randomNumber < 95)
+                        else if (randomNumber < 95)
                             newPowerUp = (GameObject)Instantiate(noRoasts);
                         else
                             newPowerUp = (GameObject)Instantiate(slowCamera);
@@ -123,6 +123,7 @@ public class TerrainGenerator : MonoBehaviour
 
         //generate first floor
         int floorWidth = rnd.Range(4, 10);
+        while (floorWidth % 2 == 0) floorWidth = rnd.Range(4, 10);
         int floorHeight = rnd.Range(-2, 3);
         currentHeight += floorHeight;
         for (int i = blockN; i < blockN + floorWidth; i++)
@@ -172,6 +173,7 @@ public class TerrainGenerator : MonoBehaviour
             {
                 // create a floor
                 floorWidth = rnd.Range(2, 10);
+                while (floorWidth % 2 == 0) floorWidth = rnd.Range(4, 10);
                 floorHeight = rnd.Range(-2, 3);
                 currentHeight += floorHeight;
                 if (currentHeight < 3) currentHeight = 3;
