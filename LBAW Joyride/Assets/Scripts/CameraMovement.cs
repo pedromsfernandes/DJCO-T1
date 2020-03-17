@@ -21,6 +21,7 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
     float speedSave = 0;
     Vector3 cameraPos;
     Vector2 screenSize;
+    bool pause = false;
 
     public GameObject scoreController;
 
@@ -60,7 +61,7 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
     // Update is called once per frame
     void Update()
     {
-        this.transform.localPosition = new Vector3(this.transform.localPosition.x + speed  * Time.deltaTime, this.transform.localPosition.y, this.transform.localPosition.z);
+        this.transform.localPosition = new Vector3(this.transform.localPosition.x + speed * Time.deltaTime, this.transform.localPosition.y, this.transform.localPosition.z);
 
         if (this.transform.localPosition.x > 152f)
         {
@@ -94,13 +95,19 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
         if (update)
             UpdateSpeed();
 
-        if (Input.GetKeyDown(KeyCode.Escape) && speed != 0)
+        if (Input.GetKeyDown(KeyCode.Escape) && !(speed == 0 && !pause))
         {
-            speedSave = speed;
-            speed = 0;
-            pauseUI.SetActive(true);
-            toldt.GetComponent<Enemy>().Stop();
-            player.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().Stop();
+            if (pause)
+                Continue();
+            else
+            {
+                pause = true;
+                speedSave = speed;
+                speed = 0;
+                pauseUI.SetActive(true);
+                toldt.GetComponent<Enemy>().Stop();
+                player.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().Stop();
+            }
         }
     }
 
@@ -128,6 +135,7 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
 
     public void Continue()
     {
+        pause = false;
         speed = speedSave;
         pauseUI.SetActive(false);
         toldt.GetComponent<Enemy>().Begin();
