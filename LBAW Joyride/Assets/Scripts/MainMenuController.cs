@@ -11,6 +11,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject canvas;
     public Image logo;
     public GameObject[] btns;
+    public GameObject[] sprites;
 
     public AudioClip soundtrack;
     public AudioClip btnSound;
@@ -35,6 +36,12 @@ public class MainMenuController : MonoBehaviour
             btns[i].transform.Find("Text").GetComponent<Text>().fontSize = (int)(btns[i].GetComponent<RectTransform>().sizeDelta.y / 2f);
         }
 
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].GetComponent<RectTransform>().sizeDelta = new Vector2(screenSize.y / 2.5f, screenSize.y / 2.5f);
+            sprites[i].GetComponent<RectTransform>().localPosition = new Vector3(-screenSize.y * 1.4f, 0, 0);
+        }
+
         if (first)
         {
             LoopAudioSource.PlayMusic(soundtrack);
@@ -46,7 +53,8 @@ public class MainMenuController : MonoBehaviour
             logo.color = new Color(logo.color.r, logo.color.g, logo.color.b, 1f);
             foreach (GameObject btn in btns)
                 btn.transform.localPosition = new Vector3(btn.transform.localPosition.x, btn.transform.localPosition.y + delta, btn.transform.localPosition.z);
-
+            sprites[1].transform.localPosition = new Vector3(sprites[1].transform.localPosition.x + 4 * delta, sprites[1].transform.localPosition.y, sprites[1].transform.localPosition.z);
+            sprites[0].transform.localPosition = new Vector3(sprites[0].transform.localPosition.x + 1.5f * delta, sprites[0].transform.localPosition.y, sprites[0].transform.localPosition.z);
         }
     }
 
@@ -76,6 +84,22 @@ public class MainMenuController : MonoBehaviour
 
     IEnumerator FirstMenuAnim(float delta)
     {
+        yield return new WaitForSeconds(0.5f);
+
+        for (int i = 0; i < 80; i++)
+        {
+            sprites[1].transform.localPosition = new Vector3(sprites[1].transform.localPosition.x + (delta / 20f), sprites[1].transform.localPosition.y, sprites[1].transform.localPosition.z);
+            yield return new WaitForSeconds(0.03f);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        for (int i = 0; i < 30; i++)
+        {
+            sprites[0].transform.localPosition = new Vector3(sprites[0].transform.localPosition.x + (delta / 20f), sprites[0].transform.localPosition.y, sprites[0].transform.localPosition.z);
+            yield return new WaitForSeconds(0.03f);
+        }
+
         yield return new WaitForSeconds(0.5f);
 
         for (int i = 0; i < 20; i++)

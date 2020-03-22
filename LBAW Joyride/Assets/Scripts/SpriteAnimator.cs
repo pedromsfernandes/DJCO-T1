@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpriteAnimator : MonoBehaviour
 {
@@ -13,7 +14,10 @@ public class SpriteAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.GetComponent<SpriteRenderer>().sprite = frames[0];
+        if (this.transform.GetComponent<SpriteRenderer>() == null)
+            this.transform.GetComponent<Image>().sprite = frames[0];
+        else
+            this.transform.GetComponent<SpriteRenderer>().sprite = frames[0];
     }
 
     // Update is called once per frame
@@ -26,7 +30,10 @@ public class SpriteAnimator : MonoBehaviour
             currFrame++;
             if (currFrame >= frames.Length)
                 currFrame = 0;
-            this.transform.GetComponent<SpriteRenderer>().sprite = frames[currFrame];
+            if (this.transform.GetComponent<SpriteRenderer>() == null)
+                this.transform.GetComponent<Image>().sprite = frames[currFrame];
+            else
+                this.transform.GetComponent<SpriteRenderer>().sprite = frames[currFrame];
         }
     }
 }
