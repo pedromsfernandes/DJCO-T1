@@ -89,7 +89,7 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
         }
 
         // Update score
-        scoreController.GetComponent<ScoreController>().UpdateScore(speed*Time.deltaTime);
+        scoreController.GetComponent<ScoreController>().UpdateScore(speed * Time.deltaTime);
 
         // Update speed
         if (update)
@@ -154,7 +154,7 @@ public class CameraMovement : MonoBehaviour, IPowerUpEvents
 
     void IPowerUpEvents.OnPowerUpExpired(PowerUp powerUp)
     {
-        if (powerUp is PowerUpSlowCamera)
+        if (speed != 0 && powerUp is PowerUpSlowCamera)
         {
             this.SetSpeed(((PowerUpSlowCamera)powerUp).GetPreviousSpeed());
             update = true;
